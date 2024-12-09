@@ -11,27 +11,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: auto;
         }
 
-        .svg-container {
-            width: 100%;
-            height: 100vh; /* Высота окна */
-            overflow: auto; /* Включает прокрутку, если изображение больше окна */
-        }
-
-        .svg-container svg {
-            width: 100%;
-            height: auto; /* Сохраняет пропорции SVG */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
     </style>
 </head>
 <body>
-    <div class="svg-container">
-        <!-- Вставьте ваше SVG изображение здесь -->
-        <object type="image/svg+xml" data="BPMN.svg" style="width: 100%; height: auto;">
-            Ваш браузер не поддерживает SVG.
-        </object>
-    </div>
+    <img src="BPMN.svg" alt="BPMN Model">
 </body>
 </html>
-
