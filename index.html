@@ -4,9 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BPMN Model</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: auto; /* Добавлена прокрутка */
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Прокрутка внутри контейнера */
+        }
+        .container svg {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <h1>BPMN Model</h1>
-    <object data="BPMN.svg" type="image/svg+xml" style="width:100%; height:100%;"></object>
+    <div class="container">
+        <embed src="BPMN.svg" type="image/svg+xml" style="width:100%; height:auto;">
+    </div>
 </body>
 </html>
+
