@@ -1,27 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BPMN Model</title>
     <style>
         body {
             margin: 0;
             padding: 0;
+            overflow: auto;
+        }
+        svg {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: transform 0.2s ease-in-out;
+        }
+        .zoom-container {
+            overflow: auto;
+            width: 100%;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: auto;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
         }
     </style>
 </head>
 <body>
-    <img src="BPMN.svg" alt="BPMN Model">
+    <div class="zoom-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="50" stroke="black" stroke-width="3" fill="red"/>
+        </svg>
+    </div>
+
+    <script>
+        const svgElement = document.querySelector('svg');
+        let scale = 1;
+
+        document.body.addEventListener('wheel', (event) => {
+            if (event.deltaY < 0) {
+                scale += 0.1; // увеличиваем масштаб
+            } else {
+                scale -= 0.1; // уменьшаем масштаб
+            }
+            svgElement.style.transform = `scale(${scale})`;
+            event.preventDefault();
+        });
+    </script>
 </body>
 </html>
